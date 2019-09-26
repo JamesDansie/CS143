@@ -1,0 +1,21 @@
+public class HeadLines {
+    
+    public static void main(String[] args) {
+        java.util.Scanner in;
+        for(String fname : args) {
+            try {
+                in = new java.util.Scanner(new java.io.File(fname));
+                System.out.println("File: " + fname);
+                for(int i = 0; i < 10 || fname == null; i++) {
+                    fname = in.nextLine();
+                    System.out.println(fname);
+                }
+                System.out.println();
+                in.close();
+            } catch(java.io.IOException e) {
+                System.err.println("Error working with " + fname + ": " + e.getMessage());
+            }
+        }
+    }
+    
+}

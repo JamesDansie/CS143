@@ -1,0 +1,257 @@
+Quiz: Layout Managers
+Back
+
+Objectives
+Gain familiarity with layout managers.
+Instructions
+All of these exercises for the lab are based on the Layout.java class. The lab exercise is broken into a series of different portions or "cases". Each case consists as a set of method calls for a Layout instance; they are given as an application method. You can either add an application method to the Layout class, or make these method calls interactively within your chosen IDE. In each case, you need to answer the questions posed for that case. Note: the cases are independent. You will submit the answers for the questions in cases 1 through 9 in the Moodle quiz. We will discuss the "Challenge Questions" in class next week.
+
+Case 1
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+}
+
+Answer the following questions:
+
+How many JButton instances exist in the application?
+	6
+How many JButton instances are shown?
+	1
+What happens as the user resizes the window?
+	The botton resizes to fit the window.
+************************************************************
+Case 2
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useFlowLayout();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	C
+Are the buttons all the same size?
+	No.
+What determines the size of the buttons?
+	The length of the text.
+What happens as the user resizes the window, making it considerably narrower? Wider?
+	First the buttons fill the space left to right. If they run out of space
+	they return to a new line.
+************************************************************
+Case 3
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useFlowLayout();
+   theApp.pack();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	I
+What does the pack method do?
+	It packs all the button closely together, in this case following the flow layout.
+************************************************************
+Case 4
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useGridLayout();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	H
+What determines the size of the buttons?
+	The frame stays the same previous size, but the buttons are now evenly divided
+	within the frame.
+What happens as the user resizes the window?
+	The buttons maintain their grid pattern, but grow to fill the whole frame.
+************************************************************
+Case 5
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useBorderLayout();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	F
+What happens as the user resizes the window?
+	The north and south buttons stay the same height, but grow in length to
+	touch the east and west borders of the frame.
+	The East and west buttons stay the same width, but grow in height to touch
+	the borders of the north and south buttons. 
+	The central button grows to fill the remaining space in the middle.
+What determines the size of the buttons?
+	The frame stays the same default size. The north, south, east, and west
+	areas take up the space they need. Central gets what is left over, which
+	in this case is not much, so it shows "..." instead of the full text.
+Hint: What happens if you add the call theApp.pack() to the end of main?
+	It shrinks all the buttons as small as possible while still showing
+	all of their text.
+************************************************************
+Case 6
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useToolbar();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	E
+When the window first appears, how many buttons are visible? Explain.
+	4. 3 are in the North border, and 1 in the central area. However, if the user
+	resizes the window then the other buttons in the North area will become visible.
+Hint: What happens if the user resizes the window?
+************************************************************
+Case 7
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useToolbarII();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	G
+Why is "Ernie ..." now visible?
+	The north area is taller this time, so there's more room for more buttons.
+Hint: Read the documentation for setPreferredSize. This method is inherited from JComponent.
+************************************************************
+Case 8
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useCustomLayout();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	A
+What happens as the user resizes the window?
+	The buttons remain in their previous size and position.
+What happens when c.validate() is called at the end of the useCustomLayout method?
+	It is making the layout manager work so it renders all the of the buttons.
+************************************************************
+Case 9
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useBoxLayout();
+}
+
+Answer the following questions:
+
+What does the window look like? (Refer to images page.)
+	B
+What happens as the user resizes the window?
+	The north area is rendered as more space beomes available, but does not grow
+	to fill the whole top area. The central button grows to fill the entire 
+	central area.
+Briefly describe the difference between BoxLayout (case 9) and FlowLayout (case 6) for the toolbar.
+	The north area of the boxlayout is more tightly packed, and does not move, whereas the 
+	flowlayout has more spacing, and the buttons move to remain centered in the north area.
+Hint: The javax.swing.Box class provides an easy way to use javax.swing.BoxLayout. For more information, see the API documentation for these two classes.
+************************************************************
+"Can you figure it out?" Questions
+These cases will be discussed in class, but are not part of the quiz per se.
+************************************************************
+Case 10
+Consider the following alternate application methods for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useToolbarII();
+   theApp.useGridLayout();
+}
+	This one makes a grid with 8 cells. The first and last are empty.
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useToolbarII();
+   theApp.useFlowLayout();
+}
+	This one make a flowlayout, but with a large void space at first.
+Answer the following questions:
+
+What do the windows look like?
+The arrangement of buttons is different due to the call to useToolbarII. Explain.
+	The toolbar was added to north, and b6 was added to central. My guess is it is still
+	renedering a blank north area after all the buttons were added to the new central.
+Hint: What happens if a call to resetToolbar is added to either of these application methods?
+	Everything goes back to normal.
+************************************************************
+Case 11
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useGridLayout();
+   theApp.useBorderLayout();
+}
+
+Answer the following questions:
+
+What does the window look like?
+	F, but with a goofy extra "Charlie button"
+What happens as the user resizes the window?
+	The first 5 buttons follow the borderlayout, but charlie remains stuck inplace.
+Briefly explain the behavior of "Charlie".
+	The first 5 buttons took all the available layout areas, so Charlie is left 
+	where it began in the grid layout. The layout manager has left it behind.
+************************************************************
+Case 12
+Consider the following application method for Layout.
+
+public static void main(String[] args)
+{
+   Layout theApp = new Layout();
+   theApp.useBorderLayout();
+   theApp.showAButton();
+}
+
+Answer the following questions:
+
+What buttons appear?
+	At first buttons 1-5, but the showAButton overrides the north area.
+What happens as the user moves the mouse over the window?
+	The new button fills the foreground.
+What happens if the user resizes the window?
+	The remaining 4 buttons stay fixed, but a new button fills the background.
+Briefly explain this behavior.
+	The layout manager has been assigned to the new button, so the old buttons
+	remain fixed in place. Not sure why it overrode the north button though.
+Hint: See Case 11.
+
+Back

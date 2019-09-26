@@ -1,0 +1,15 @@
+Command-line arguments are passed in the first String[] parameter to main(), e.g.
+
+public static void main( String[] args ) {
+}
+In the example above, args contains all the command-line arguments.
+
+The short, sweet answer to the question posed is:
+
+public static void main( String[] args ) {
+    if( args.length > 0 && args[0].equals( "a" ) ) {
+        // first argument is "a"
+    } else {
+        // oh noes!?
+    }
+}

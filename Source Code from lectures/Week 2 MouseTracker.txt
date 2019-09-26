@@ -1,0 +1,71 @@
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+public class MouseTracker extends JPanel 
+    implements MouseListener {
+
+    private int x, y;
+   
+    public MouseTracker() {
+        x = y = - 50;
+        addMouseListener(this);
+    }
+    
+    // all five methods of MouseListener must be overridden
+    public void mouseEntered(MouseEvent e) {}
+    public void mouseExited(MouseEvent e) {}
+    public void mousePressed(MouseEvent e) {}
+    public void mouseReleased(MouseEvent e) {}
+    public void mouseClicked(MouseEvent e) {
+        x = e.getX();
+        y = e.getY();
+        repaint();
+    }
+    
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.red);
+        g.drawOval(x - 10, y - 10, 20, 20);
+        g.drawLine(x, y - 20, x, y + 20);
+        g.drawLine(x - 20, y, x + 20, y);
+    }
+
+    public static void main(String[] args) {
+        JFrame win = new JFrame("Mouse Tracker");
+        win.setSize(400, 300);
+        win.setLocation(25, 25);
+        win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        
+        MouseTracker mt = new MouseTracker();
+        win.add(mt);
+        JLabel click = new JLabel();
+        JLabel loc = new JLabel("Mouse out");
+        JPanel output = new JPanel(new GridLayout(1, 2));
+        output.add(click);
+        output.add(loc);
+        win.add(output, BorderLayout.SOUTH);
+        // using an anonymous inner class, 
+        // adding a second MouseListener to MouseTracker
+        // it is based on MouseAdapter which already has empty overrides 
+        // for eahc of the methods in MouseListener
+        mt.addMouseListener(new MouseAdapter() {
+            public void mouseClicked(MouseEvent e) {
+                click.setText("Mouse clicked at " + e.getX() + ", " + e.getY());
+            }
+            public void mouseEntered(MouseEvent e) {
+                loc.setText("Mouse entered");
+            }
+            public void mouseExited(MouseEvent e) {
+                loc.setText("Mouse left");
+            }
+        });
+        // The MouseAdapter class also implements MouseMotionListener
+        mt.addMouseMotionListener(new MouseAdapter() {
+            public void mouseMoved(MouseEvent e) {
+                loc.setText("Mouse moved to " + e.getX() + ", " + e.getY());
+            }
+        });
+        win.setVisible(true);
+    }
+}

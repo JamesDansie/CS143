@@ -1,0 +1,3 @@
+# CSC 143 at North Seattle Community College
+### Author: James Dansie
+This repo is the class work for CSC143 at North Seattle Community College. It cover a wide range of topics including Data Structures(stacks, queues, linked lists, etc.), the Game of Life, and various other projects. CE, LA, and PA are various homework assignments. Persistent things are in cs143 - this includes data structures and game of life.

@@ -1,0 +1,26 @@
+Project: LA6 - java.lang.Object
+Author: James Dansie
+
+Include method name, access level, parameter list, return type, what does it do?
+
+clone() - The clone method has a protected access level. It takes no parameters, and returns an Object type. It creates and returns a copy of the original object.
+
+equals(Object) - The equals method has a public access level. It takes an object parameter, and returns a boolean. This object will be checked to so see if it is ".equals" to the original object. It will check the content, but not the exact memory location (.equals, not ==).
+
+finalize() - This method has a protected access level. It takes no parameters. It has no return. It is called by the gabage collector when the garbage collector finds that there are no more references to an object.
+
+getClass() - This method is public. It takes no parameters. This method returns the runtime class of the object.
+
+hasCode() - This method is public. It takes no parameters. This method returns an int that is the hash code for the object.
+
+notify() - This method is public. It take no parameters. This method has no return. This method wakes up a single thread that is waiting on the object's monitor.
+
+notifyAll() - This method is public. It take no parameters. This method has no return. This method wakes up all of the threads that are waiting on the object's monitor.
+
+toString() - This method is public. It takes no parameters. This method returns a string representation of the object.
+
+wait() - This method is public. It takes no parameters. This method has no return. This method causes the thread to wait until another thread calls notify() or notifyAll() for this object.
+
+wait(long timeout) - This method is public. It takes a long input. This method has no return. This method causes the thread to wait either until another thread calls notify()/notifyAll() or until the "timeout" time has passed.
+
+wait(long timeout, int nanos) - This method is public. It takes a long input. This method has no return. This method causes the thread to wait either until another thread calls notify()/notifyAll(), until the "timeout" time has passed, or another thread interrupts the current thread.

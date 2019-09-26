@@ -1,0 +1,122 @@
+package csc143.thread;
+
+import java.awt.*;
+import javax.swing.*;
+import java.awt.event.*;
+
+/**
+ * A simple demonstration giving an example
+ * of the need and use of threading in programming.
+ */
+public class MovingDot extends JPanel {
+    
+    // the location of the dot
+    private int x;
+    private int y;
+    
+    /**
+     * The size of the dot
+     */
+    public static final int SIZE = 50;
+    
+    /**
+     * The amoutn to move the dot
+     */
+    public static final int INCR = 5;
+    
+    /**
+     * The constructor which sets the dot at the
+     * origin, the upper-left corner of the panel.
+     */
+    public MovingDot() {
+        x = y = 0;
+        // visual distinguish MovingDot from the rest 
+        // of the window
+        setBackground(Color.white);
+    }
+    
+    /**
+     * The method to render MovingDot.
+     * @param g The Graphics use to render
+     */
+    @Override
+    public void paintComponent(Graphics g) {
+        super.paintComponent(g);
+        g.setColor(Color.yellow);
+        g.fillOval(x, y, SIZE, SIZE);
+        g.setColor(Color.black);
+        g.drawOval(x, y, SIZE, SIZE);
+    }
+    
+    /**
+     * A method to jump the dot back to the origin.
+     */
+    public void home() {
+        // reset the coordinates and redraw
+        x = y = 0;
+        repaint();
+    }
+    
+    /**
+     * A method to move the dot to the right, 
+     * INCR pixels at a time.
+     */
+    public void moveRight() {
+        // loop while the dot is not to the right edge
+        while(x + SIZE < getWidth() - INCR) {
+            // update the location and redraw
+            x += INCR;
+            repaint();
+            // pause for a bit so we can see the movement
+            // The Thread.sleep method can throw a checked
+            // exception, we must address that issue.
+            try {
+                // make the current thread pause (sleep) so 
+                // we can see the movement
+                Thread.sleep(50);
+            } catch(InterruptedException e) {
+                // nothing to do if the sleep was interrupted
+                // There is no beGrumpy method ... ;-)
+            }
+        }
+    }
+    
+    /**
+     * The driver method to set up the application
+     * @param args The command-line arguments (ignored)
+     */
+    public static void main(String[] args) {
+
+        // set up the window
+        JFrame win = new JFrame("Moving Dot");
+        win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        win.setSize(400, 300);
+        win.setLocation(25, 25);
+        
+        // create a MovingDot and put it in CENTER
+        MovingDot show = new MovingDot();
+        win.add(show);
+        
+        // create a tool bar and put it in SOUTH
+        JPanel tools = new JPanel();
+        win.add(tools, BorderLayout.SOUTH);
+        JButton home = new JButton("Home");
+        tools.add(home);
+        home.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                show.home();
+            }
+        });
+        
+        // run the app
+        win.setVisible(true);
+        
+        // move the dot
+        // It's critical to show the window first, otherwise
+        // the layout manager hasn't been invoked and the size
+        // of MovingDot is 0x0 pixels.
+        show.moveRight();
+        
+    }
+    
+}

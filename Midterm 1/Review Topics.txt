@@ -1,0 +1,163 @@
+OOP
+*********
+Coupling is how dependent a class is on another class. Cohesion is how related the internals of the class are.
+
+State is the data of an object (fields). Behavior is the methods and algorythms.
+
+Abstraction is the ability for this class/package to be applied generally over a broad range of conditions.
+Encapsulation is that the inner workings of the class are hidden from the end user. They give data and get answers back, but don't worry about the inner workings.
+
+Inheritance allows a subclass to extend a super class, or override the existing methods for new capabilities.  
+
+Polymorphism is when an object can be declared as multiple types. So an object that is declared as superclass, can also be redirected to reference a subclass.
+
+**********
+Declarations Refernces and Instances
+**********
+Classes can store states, and algorithms (and do work). Interfaces setup how the methods will act, but doesn't implemenets the methods.
+
+Static types are checked at compilation, whereas dynamic types are checked at when called. For methods you need to declare an instance of them first, and refer to that instance. If you try to call a field directly it will complain because the method is not instantiated.
+
+Type compatibility is the ability for one type of object to be redeclared as another. A superclass can be a subclass, but a subclass type cannot be a superclass reference.
+
+Visiblity modifiers are delcarations that declare how widely something can called, public and private are the big ones. Also protected and package private (but doesn't use a modifier). Private is only visible in that class. Protected;
+            ¦ Class ¦ Package ¦ Subclass ¦ Subclass ¦ World
+            ¦       ¦         ¦(same pkg)¦(diff pkg)¦ 
+------------+-------+---------+----------+----------+--------
+public      ¦   +   ¦    +    ¦    +     ¦     +    ¦   +     
+------------+-------+---------+----------+----------+--------
+protected   ¦   +   ¦    +    ¦    +     ¦     +    ¦         
+------------+-------+---------+----------+----------+--------
+no modifier ¦   +   ¦    +    ¦    +     ¦          ¦    
+------------+-------+---------+----------+----------+--------
+private     ¦   +   ¦         ¦          ¦          ¦    
+
++ : accessible
+blank : not accessible
+https://stackoverflow.com/questions/215497/in-java-difference-between-package-private-public-protected-and-private
+
+Final means that it cannot be overriden. Static means that it is checked at compile. Abstract means the method does not have any behavior, but lays out how the method will interact and call.
+
+The import declaration allows a package to be called by it's simple short name instead of the whole file structure. 
+
+**********************
+Inheritance
+**********************
+
+An Is-A relationship is describes what a method is; A deer is an animal. A deer is an herbavore, etc. 
+
+A Has-A relationship descrives what is inside something. A deer has a heart. A deer has a brain, etc.
+
+A method can be defined for multiple types of input with the same method name. This is done by overloading.
+
+A method from superclass can be over writen for a new input or new behavior. This is override.
+
+DYNAMIC DISPATCH IS A MYSTERY!
+
+super can be used to call the fields and methods of the superclass.
+
+An abstract class can have some behavior defined in it, but not necessarily all of it. It will have the behavior of the other methods described though. In a concrete class all of the behavior will be defined.
+
+To override a method use the same method name as the method in the superclass. It is good form to add an @Override tag to check for consistency.
+
+To overload a method, use the same name in the same class and simply use a different input.
+
+A java interface specifies the name, type of method, and method input for subclasses.
+
+Interfaces describe how subclass will be behave, but cannot have behavior in the methods. Abstract methods can have behavior for some methods, but at a minimium will describe how the methods behave.
+
+To call an interface use implements in the method header. This establishes an Is-A relationship.
+To call a class use extends. Can only have one superclass, but infinite interfaces.
+
+A class without constructors? Sure, but it is self contained.
+
+A constructor private? Sure, but it would have to be called by another constructor that was public.
+
+**********
+Unit testing - I assume jUNIT haven't got there yet
+**********
+jUnit
+import org.junit.Assert
+import static org.junit.Assert
+...
+	@Test public static void methodName(){
+		AssertTrue(...);
+	}
+Normal cases, limits, and exceptions.
+************************
+Packages
+************************
+
+A java package is a java namespace where everything in the package can see everything else, but not what is outside of the package.
+
+The package is related to file structure where a period is a folder, and to call a package it must be on the class path.
+
+Not all classes are in named packages. An unamed package is an annonymous package by default.
+
+A package is defined by "package blah.blah;" at the very top of the java file.
+
+import makes the package usable without the full filestructure/name
+*************
+User Interface
+*************
+A container is a thing that contains components. Containers can be components themselves, and can be added to other containers. Containers provide the layout and orginzation for the window. The component is the object to be added to the container, such as graphics.
+
+REVIEW GAME OF LIFE
+
+************************
+Even-Driven Programming
+************************
+REVIEW GAME OF LIFE, maybe make a button and action practice. Review Listeners and Adapters.
+
+JButton b1 = new JButton("Button Text");
+b1.addActionListener(new ActionListener(){
+	public void actionPerformed(ActionEvent e){
+		stuff the button does when clicked
+		win.repaint();
+	}
+});
+
+***********************
+Programming by Contract
+***********************
+Programming by contract is where the responsiblities of the client and supplier code are worked out before hand, and the client doesn't have to worry about what is going on inside of the supplied code.
+
+Preconditions must be true before a method executes inorder to make sure the method runs properly.
+
+Postcondition is a condition the method guarantees will be true after running.
+
+Invariant is an assertion about an object's state that is always true.
+
+An assert is a boolean check and will cause an error that cannot be caught.
+
+An exception is a runtime error that can be caught.
+
+************************
+Exceptions
+************************
+Exceptions can progrogate from the original method that caused back up the call tree until it is caught.
+
+To raise an exception use throws in the method header. 
+
+Can also use a try/catch block. And have the catch block handle the exception.
+
+The exception will have a string input that can be used to report the problem.
+
+An excpetion is a class.
+
+An error is an unknow critter type!
+
+Checked exceptions myst be caught or declared in the method header.
+
+*********************
+Collections
+*********************
+A collection is an object that stores a group of other objects as its elements (stacks, queues, list, set, map)
+
+An iterator is an object that allows the efficient retrivial of elements in a list in sequential order.
+
+Collections are found in java.util
+
+The collections are represented by their underlying structure. So ArrayList vs LinkedList and HashSet vs TreeSet, etc.
+
+The ListIterator is the iterator for a list.

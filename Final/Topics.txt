@@ -1,0 +1,502 @@
+Final Exam: Review Topics
+Back
+***************************************
+Object-Oriented Programming
+*******************
+What are coupling and cohesion?
+Coupling is how dependent a class is on another class.  Cohesion is how related the internals of the class are.
+
+How are state and behavior related to objects?
+State is the data (fields) behavior is the methods that algorythms
+
+What are Abstraction? Encapsulation? Inheritance? Polymorphism?
+Abstraction is the ability of a class to be applied generally over a large range of conditions.
+Encapsulation is to have the inner workings of the class hiden from the end user.
+Inheritance allows a subclass to extend or override the existing methods for new capabilities.
+Polymorphism is when an object is redeclared as a subtype. So an object that is declared as a superclass can be redirected to point at a subtype.
+***************************************
+Declarations, References, and Instances
+***************************************
+Compare the use of classes and interfaces as types in Java.
+Classes can store states, and have methods that do stuff. Interfaces layout what the methods will look like, but not how they will be implemented.
+
+What is meant by static type? dynamic type?
+Static types are check at compilation, where as dynamic types are checked when called. For methods you need to delcare an instance of them first, and refer to that instance. If you call a method directly it will complain because the method is no instantiated.
+
+What is type compatibility?
+Type compatibility is the ability for one type of object to be redeclared as another. A superclass can be a subclass, but a subclass cannot be a superclass.
+
+What are scope, visibility, and lifetime?
+What are the visibility modifiers / access levels?
+Visiblity modifiers are delcarations that declare how widely something can called, public and private are the big ones.
+Also protected and package private (but doesn't use a modifier). Private is only visible in that class. Protected;
+            ¦ Class ¦ Package ¦ Subclass ¦ Subclass ¦ World
+            ¦       ¦         ¦(same pkg)¦(diff pkg)¦ 
+------------+-------+---------+----------+----------+--------
+public      ¦   +   ¦    +    ¦    +     ¦     +    ¦   +     
+------------+-------+---------+----------+----------+--------
+protected   ¦   +   ¦    +    ¦    +     ¦     +    ¦         
+------------+-------+---------+----------+----------+--------
+no modifier ¦   +   ¦    +    ¦    +     ¦          ¦    
+------------+-------+---------+----------+----------+--------
+private     ¦   +   ¦         ¦          ¦          ¦    
+
++ : accessible
+blank : not accessible
+https://stackoverflow.com/questions/215497/in-java-difference-between-package-private-public-protected-and-private
+
+What are other modifiers? When can they be used? (includes static, final, abstract)
+final means that the field cannot be changed or that the method cannot be overriden.
+static methods belong to the class, not that particular instance.
+abstract methods can be declared, but have no actual implementation. That is left to the subclasses.
+
+What is the effect of the import declaration?
+makes a package callable by its simple name.
+***************************************
+Inheritance
+**************
+Describe the Is-A relationship.
+A deer is an animal. A Is-A means that something is that type or a subtype of that.
+
+Describe the Has-A relationship.
+A deer has a heart. A Has-A means that it uses that type, but is not necessarily made of that type.
+
+What is method overloading?
+When a can be defined with multiple types of input, but has the same name.
+
+What is method overriding?
+When a subclass redefines a method from a superclass.
+
+Can one overload constructors?
+Yes.
+
+Can one override constructors?
+No.
+
+What is dynamic dispatch?
+Dynamic dispatch means that the application is deciding which method to call and run at run time, not at compilation. So it is making it up as it goes.
+
+Describe the two uses for super.
+Super can be used to call fields and methods of the superclass. 
+
+Describe the difference between abstract and concrete classes.
+An abstract class can have some behavior defined in it, but not necessarily all of it. It will have the behavior of the other methods described though. In a concrete class all of the behavior will be defined.
+
+Know how to write Java classes, both abstract and concrete (non-abstract).
+abstract public class some_name{
+}
+
+In overriding, how is the correct method chosen?
+It uses the child's method.
+
+In overloading, how is the correct method chosen?
+It matches the inputs
+
+What is a Java interface?
+A java interface specifies the name, type of method, and method input for subclasses.
+
+Know how to write a Java interface.
+public interface name{
+}
+
+Compare and contrast the use of abstract classes and interfaces. How are they similar? How are they different?
+An abstract class can have some behavior defined in it, but not necessarily all of it. It will have the behavior of the other methods described though. In a concrete class all of the behavior will be defined.
+To override a method use the same method name as the method in the superclass. It is good form to add an @Override tag to check for consistency.
+
+Know the syntax for inheriting methods from classes, from interfaces.
+interfaces are implemented classes are extended.
+
+Can one write a class without any constructors?
+Sure but it is self contained.
+
+Can one declare a constructor private? How could such a constructor be used?
+Sure, but it would have to be called by another method that was public.
+***************************************
+Unit Testing
+************************
+What is the standard package for unit testing in Java?
+JUnit
+
+What is a test case?
+It creates a method with the @Test annotation. In that method there will be a boolean test.
+
+How are test cases created? (annotated)
+jUnit
+import org.junit.Assert
+import static org.junit.Assert
+...
+	@Test public static void methodName(){
+		AssertTrue(...);
+	}
+
+Should test cases be large or small?
+As small as possible inorder to isolate the single problem.
+
+Should testing be comprehensive?
+What kinds of test should be included? (three primary types)
+Normal cases, limits, and exceptions.
+
+What do @Test, @Before, and @After do?
+How are they used?
+***************************************
+Packages
+************************
+What is a Java package?
+A java package is a java namespace where everything in the package can see everything else, but not what is outside of the package.
+
+How is a Java package related to the file system?
+The package is related to file structure where a period is a folder, and to call a package it must be on the class path.
+
+How is a Java package related to the class path?
+java makes all the packages on the class path accesible
+
+What is a namespace?
+Do all Java classes exist in named packages?
+Not all classes are in named packages. An unamed package is an annonymous package by default.
+
+If no, where are the classes which are not in named packages?
+How is a package specified in Java source code?
+at the top of the .java file there will be package folder.name;
+
+What is the impact / effect of the import declaration?
+makes the methods callable by their simple name.
+***************************************
+User Interface
+********************************
+Describe the relationship between components and containers.
+A container is a thing that contains components. Containers can be components themselves, and can be added to other containers. Containers provide the layout and orginzation for the window. The component is the object to be added to the container, such as graphics.
+
+Know the basic usage of JFrame, JButton, JPanel, JLabel. (You should know the methods that you used in the assignments and labs.)
+Review GOL
+
+Describe the actions / use of a layout manager.
+Layout managers originize the layout of components in the container.
+
+Compare and contrast three basic layout managers (FlowLayout, GridLayout, BorderLayout).
+BorderLayout - north, east, south, west, 
+FlowLayout - centered with a bit of spacing
+Grid - it's a grid
+
+Be able to create simple user interface using JFrame, JButton, JPanel, JLabel, and the layout managers.
+Describe the use of paint / paintComponent. How are they similar? different?
+paint draws an object. The paintComponent paints on the container and rescales with the container.
+
+Describe the relationship of paint / paintComponent and the underlying windowing system.
+What is a Graphics object? How is it used?
+***************************************
+Event-Driven Programming
+**********************************
+Contrast event-driven programming with algorithm-driven programming.
+algorithm - if this then that, always sequential. Events are based on input from the user.
+
+Describe the primary features of Java v1.1 event handling.
+Listeners
+Listens for an action, but has many methods that need to be filed out.
+
+Adapters
+Is a listner that has blank methods that the user then overrides as necessary.
+
+Event objects
+Stores the source of the event.
+
+Event sources
+Buttons, mice, etc.
+
+Be able to list some simple events and objects which may generate those events.
+button click, button release, mouse movement/click, focus lost/gained
+
+Describe how listeners are associated with events. (cf: Observable - Observer pattern)
+listeners want to be notified when an event happens. An observable updates the observers when something happens.
+
+Describe the use of inner classes in event handling. (not included on the exam: anonymous inner classes and accessing inner classes externally.)
+***************************************
+Programming by Contract
+**************************************
+What is meant by "Programming by Contract"?
+Programming by contract is where the responsiblities of the client and supplier code are worked out before hand, and the client doesn't have to worry about what is going on inside of the supplied code.
+
+What is a precondition? Postcondition? Invariant?
+Preconditions must be true before a method executes inorder to make sure the method runs properly.
+Postcondition is a condition the method guarantees will be true after running.
+Invariant is an assertion about an object's state that is always true.
+
+Whose responsibility is it that postconditions be met?
+The called method.
+
+Whose responsibility is it that preconditions be met?
+It is the responsiblity of the client, but the method should still check the input.
+
+When preconditions are not met, what should occur?
+Throws an exception
+
+What is an assert?
+An assert is a boolean check and will cause an error that cannot be caught.
+
+What is an exception?
+An exception is a runtime error that can be caught.
+***************************************
+Exceptions
+***************************************
+Define the term "exception".
+A runtime error that prevents execution of the program.
+
+What does "the exception propogates" mean?
+Exceptions can progrogate from the original method that caused back up the call tree until it is caught.
+
+When does an exception propogate?
+when it is not caugth with a try/catch block.
+
+What does "report the exception" mean?
+use the throws 
+
+Know the syntax to raise an exception.
+throws IOException in the header.
+public class name_stuff extends superclass implements interface1, interface2 throws Exception{
+}
+
+Know the syntax to handle an exception.
+catch(Exception e){
+}
+Know the syntax to report an exception.
+throw or System.err.println();
+
+Know the distinction between Java exceptions, errors, and run-time exceptions.
+Syntactically, what kind of "critter" is a Java exception? A Java error?
+An excpetion is a class.
+An error is an unknow critter type!
+
+What is the difference between checked and unchecked exceptions?
+Checked exceptions myst be caught or declared in the method header.
+
+Can two exceptions occur concurrently?
+no.
+***************************************
+Collections
+***************************************
+What is a collection? 
+A collection is an object that stores a group of other objects as its elements (stacks, queues, list, set, map)
+
+What is an iterator?
+An iterator is an object that allows the efficient retrivial of elements in a list in sequential order.
+
+The standard Java2 libraries support three different kinds of collection-like objects. What are they? Which are true collections? Which is not?
+List, Set, Map - these are interfaces and are made with underlying structures (array, linked list, hash, tree)
+Map is not a true collection
+
+In which package would one find collections?
+java.util.*
+
+How are these collections represented in the library?
+The collections are represented by their underlying structure. So ArrayList vs LinkedList and HashSet vs TreeSet, etc.
+What are some standard implementations of these kinds of collections?
+Why are there multiple implementations?
+
+What is a ListIterator? How is it related to Iterator?
+The ListIterator is the iterator for a list.
+
+Know the three methods of java.util.Iterator, version 1.7.
+next(), hasNext(), remove()
+
+What is a stack? A queue? A heap?
+A heap is a BST where the childern are no bigger than the parent - max heap 
+A heap is a BST where the children are no smaller than the parent - min heap
+***************************************
+Algorithmic Complexity
+***************************************
+What is algorithmic complexity?
+A way of looking at how program scales in the worst case
+
+How is it measured?
+Big O notation O(n)
+What is the notation used to report algorithmic complexity?
+Know the order of complexity measures.
+O(1), O(log(n)), O(n), O(nLog(n)), O(n2), O(2n)
+What does it mean to say two algorithms have the same algorithmic complexity?
+Same big O
+
+Be prepared to evaluate algorithmic complexity in a "broad" context.
+***************************************
+Generics
+***************************************
+What kinds of language constructs can be made generic?
+Objects?
+
+What purpose / function is supported by generics?
+The methods of java.lang.Object
+
+Generics were added into Java in version 1.5. What was done in early versions of Java to support this type of functionality?
+cast the return as the desired type.
+
+What kind of "critters" are generic formal parameters?
+reference types (objects)
+
+Can generics be used with Java primitive types?
+no, but there are wrappers that make primitive objects.
+
+Is it possible to have multiple generic formal parameters?
+no...?
+***************************************
+Linked List
+***************************************
+What are the basic characteristics of the "link" in a linked list?
+item/data and next
+
+What type of data structure is a linked list? (several different types of correct answers here)
+a recursive object
+
+Are links sufficient to create a linked list? If not, what else is needed?
+No, you need a head for the list.
+
+What is a doubly-linked list?
+adds a tail so you can start from the end as well as the beginning of the list.
+
+Be prepared to compare a linked list and an array as a mechanism to store data.
+Arrays are fast to access, but slow to remove
+Links are slow to access, but fast to remove
+***************************************
+Trees
+***************************************
+What is a tree?
+Similar to a LinkedList, but the nodes point to two other nodes
+
+What are nodes? Edges? Leaves? Subtrees? Root?
+The node is the storage object.
+The edges are the pointers.
+Leaves are nodes that have no links.
+Subtrees are the sub treess....?
+Root is the head of the tree.
+
+Know how to determine the height of a tree.
+Count the levels.
+
+Know how to determine the level of a node.
+Count the levels down from the root.
+
+Know how to traverse a tree: pre-order, post-order, in-order.
+Page 1024 of the book.
+
+What does it mean to say a tree is binary?
+It has two edges per node.
+
+What are the organizing properties of a BST (binary search tree)?
+The subtrees are organized, typically small on the left and large on the right.
+
+What are the organizing properties of a priority queue, standard implementation, using an array for storage.
+Pick a pivot then move all the numbers less than to the left and all the numbers bigger to the right. Continue to divide and sort until everything is in order
+
+What are the organizing properties of an AVL tree?
+Same as BST but it balances out the height of the subtrees so none are more than +1 than the other.
+
+What other kinds of trees are possible?
+Heaps, min and max. Probably more
+***************************************
+Recursion
+***************************************
+What is recursion?
+A class or method that calls itself.
+
+Do all languages support recursion?
+The early ones did not.
+
+Compare and contrast recursion and looping.
+Similar to a while loop, and can go on forever if the base case is not met.
+
+What is necessary for recursion to be a viable implementation strategy?
+Be prepared to give a recursive definition to binary search.
+***************************************
+Data Structures
+***************************************
+Compare and contrast the list, set, and map as data structures.
+List - an ordered collection of elements, often accessed by integer indexes or by iteration.
+Set - A collection of elements without any duplicates.
+Map - A collection of key/value pairs in which each key is associated with a corresponding value.
+
+Compare and contrast the array and the linked list as a means to implement a list.
+The array is fast to index or iterate. Adding to the end is fast. Adding or removing in the middle is slow.
+The linkedlist is fast to add or remove in the middle, but is slow to index or iteration.
+
+Compare and contrast the binary tree and the hash as a means to implement a set.
+The BST sorts each item into the tree, and removes any duplicates.
+The hash sorts all elements into an array with the index being a unique hash value from a hash function.
+
+Compare and contrast the binary tree and the hash as a means to implement a map.
+I have no idea.
+
+Describe what a hash code is. What does perfect hash mean? What is a bucket? What is the load factor?
+A perfect hash means that everything item would be unique. Instead things are repeated and collide with each other. If they have the same hash value they will be stored in the same bucket (list). The load factor is how much of the array is full, and will regrow if the array is too full.
+
+What is a tree? What is the root? What is a node? What is an edge? What is a leaf? What is a subtree? What is the height of a tree?
+What is a binary search tree?
+A tree where the left side is less and the right side is greater.
+
+Be able to trace through additions and deletions to a BST.
+What is a balanced binary search tree? Why is it desirable to have the BST balanced?
+Keeps the tree O(log(n)), otherwise it becomes a list and is O(n).
+Be able to traverse a binary in the standard three orders: pre-order(left), in-order(under), and post-order(right).
+***************************************
+MVC
+***************************************
+Know the long form for this abbreviation.
+Model View Controller
+
+Describe the three parts of the MVC design pattern.
+Model is the data/guts of the application
+The View is the visual representation of the Model
+The controller is where the events and changes happen. Coordinates the models and views.
+Describe the relationship between these three parts.
+
+Roles associated with each part
+How information is transmitted
+Observers watch for when the observable changes.
+***************************************
+Notifications
+***************************************
+Be able to identify the roles / responsibilities within a system.
+Input/Output Streams
+What is an I/O stream?
+A source of data and a sink for that data.
+
+There are two basic types of streams in java.io. What are they?
+Byte streams (InputStream OutputStream) and character streams(Reader and Writer).
+
+Know the classes and methods to support reading and writing the primitive data types and String to files using these two stream classes.
+FileReader inFile = new FileReader(sourceFilename);
+BufferedReader stuffIn = new BufferedReader(inFile);
+String line = stuffIn.readLine();
+
+FileWriter outFile = new FileWriter(destFilename);
+BufferedWriter stuffOut = new BufferedWriter(outFile);
+stuffOut.write(stuff out in string format);
+stuffOut.newLine();
+String.format("   %s  %f %d);
+
+Also;
+FileInputStream fis = new FileInputStream(new File(filename));
+ObjectInputStream ois = new ObjectInputStream(fis);
+blah = ois.readObject();
+ois.close();
+
+FileOutput Stream fos = new FileOutputStream(new File(filename));
+ObjectOutputStream oos = new ObjectOutputStream(fos);
+oos.writeObject(blah);
+oos.close();
+
+What types of actions does the java.io.File class support?
+ALL THE ACTIONS. new file, read, write
+How can I associate streams with files?
+File writer and reader
+
+Be prepared to give examples of other sources and sinks for streams.
+Networks, system in and out, log files
+***************************************
+Sorting
+***************************************
+Know the algorithm for common sorting algorithms: bubble sort, insertion sort, selection sort, quick sort, merge sort, heap sort.
+Bubble sort - compares neighbors and sorts until it goes through the entire array left to right. The right most value is now correct. It then repeats with the remaining values until they are all sorted.
+Insertion Sort - Picks the first item from the unsorted section and then inserts it in the correct spot. Like building a hand of cards.
+Selection Sort - Searchs the unsorted area for the smallest value and swaps it to the front of the unsorted area.
+Quick Sort - Uses a BST. Pick a pivot and move all the smaller numbers to the left and all the larger numbers to the right. Repeat with the left and right sides until everything is sorted.
+Merge Sort - Split the array in half. Sort the halves separately, then merge them together.
+Heap Sort - Heap max/min. Uses a BST with the condition that all childern must be bigger or smaller.
+Be able to compare and contrast these sorting algorithms.
+Be able to trace through sorting an array using these sorting algorithms.

@@ -1,0 +1,10 @@
+Author: James Dansie
+Project: PA 5 - Life Animated Standard
+
+I started the project by reading as much of the class notes and materials as I could. I started  with what is simple and I understand. I started with buttons. I added the next buttons, and had their text change. In the process I added the boolean running, and a thread for the animation button. I implemented the observer stuff, and it seems to work.
+
+The part of the code that is weird is that I will need the win.repaint(). If I comment it out then the old cells are never earsed, and the new cells are off 5 pxls. Also it draws the buttons at the top for some reason. This is probably related to threads some how, but I've tried adding threads all the buttons, still no luck. I've also tried commenting out all of the features except "starting point" to see if it was related to the animation. Still no luck.
+
+The biggest thing I learned is to add threads if something is important. I'd like to say I learned the observers, but honestly I'm still confused by those.
+
+Next time I would click on the "video example of the Minimal Level" A LOT sooner.

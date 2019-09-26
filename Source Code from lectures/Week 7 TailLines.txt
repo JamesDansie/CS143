@@ -1,0 +1,28 @@
+public class TailLines {
+    
+    public static void main(String[] args) {
+        java.io.BufferedReader in;
+        java.util.List<String> hold;
+        hold = new java.util.ArrayList<String>();
+        for(String fname : args) {
+            try {
+                in = new java.io.BufferedReader(new java.io.FileReader(fname));
+                System.out.println("File: " + fname);
+                String line = in.readLine();
+                while(line != null) {
+                    hold.add(line);
+                    line = in.readLine();
+                }
+                int start = hold.size() - 10;
+                for(int i = 0; i < 10; i++) {
+                    System.out.println(hold.get(start+i));
+                }
+                System.out.println();
+                in.close();
+            } catch(java.io.IOException e) {
+                System.err.println("Error working with " + fname + ": " + e.getMessage());
+            }
+        }
+    }
+    
+}

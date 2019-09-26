@@ -1,0 +1,10 @@
+Author: James Dansie
+Project: PA 7 - Game of Life Serialization and Final Submission - Standard Level
+
+The hardest suprise was adding the no "clobber" section. There was supprising little results from a google search on the topic. After reading a few articles I could peice it together. Setting up the File Chooser was a challenge as well, again suprisingly few examples online, and the Oracle manual was a bit overwhelming. 
+
+The main thing I would do differently would be to move more of the code out of the main section. The thing that held me back there was the various "win.repaint()" calls. I don't know how to make that work if "win" (JFrame) hasn't been defined yet. 
+
+I'm a bit of a pack rat with my code, so I like to keep the old functionality if possible. For example the "toString" method is still around, as are most of the old buttons, but they're just not called. Sometimes that is helpful for debugging or troubleshooting, but it really does clutter up the code. 
+
+I did not do challenge level so there is no configuration file. The save files were saved when an existing file was not present, and if an existing file was present then it would pop up an override confirmation before copying over the old file.

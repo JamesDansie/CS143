@@ -1,0 +1,58 @@
+package csc143.file_io;
+
+import java.io.*;
+
+/**
+ * Sample application showing writing to a character stream
+ */
+public class CharStreamOutput {
+    
+    /** 
+     * The application method
+     * @param args The command-line arguments
+     */
+    public static void main(String[] args) {
+
+        // Data for writing, the same data as used by ByteStreamOutput
+        boolean b = true;
+        char c = 'A';
+        int i = 65;
+        float f = 1.618f;
+        short h = 52;
+        long l = 52;
+        String s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ" + 
+                   "abcdefghijklmnopqrstuvwxyz";
+        double d = Math.PI;
+        
+        // a single try-block for all of the file operations
+        try {
+            // Open the file and associated a Writer (character output
+            // stream) with the file. This could throw a checked exception.
+            FileWriter fw = new FileWriter("charstream.txt");
+            // "Wrap" the output stream in an object that will translate
+            // common Java types into a sequence of bytes. This constructor
+            // will not throw a checked exception.
+            PrintWriter pw = new PrintWriter(fw);
+            
+            // Write the data to the output file. Notice that the method
+            // is overloaded, multiple times. These methods do not throw
+            // checked exceptions.
+            pw.print(b);
+            pw.print(c);
+            pw.print(i);
+            pw.print(f);
+            pw.print(h);
+            pw.print(l);
+            pw.print(s);
+            pw.print(d);
+            
+            // Close the output character stream. This operation could throw
+            // a checked exception.
+            fw.close();
+        } catch(IOException e) {
+            System.err.println("Error writing to the char stream.");
+        }
+        
+    }
+    
+}

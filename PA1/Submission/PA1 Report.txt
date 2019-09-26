@@ -1,0 +1,41 @@
+1) null is a keyword that means a varibale has been declared, but it doesn't point to anything yet.
+
+2) null pointer exception.
+
+3) GameOfLife life = null; -- life is being declared as a type "GameOfLife" which references the interface. 
+   life = new MyGameOfLife() -- initializes the life variable with the object "MyGameOfLife"
+Without the null declaration life has no value, and is immediately discarded. Null serves as a place holder.
+Alternatively you could use "GameOfLife life = new MyGameOfLife();"
+
+4) println is overloaded to handle different types of inputs. An int is handled differently than a
+string, or a double, or anyother type of input. This is out of convience so the user doesn't have to 
+specify the type of input.
+
+When println prints an object it will look for the toString() method by default. If it finds 
+toString() it will call that by default. If the toString() is not found it will print the memory
+gibberish "@f23423" or something similar. 
+
+5) The glider turns into a block (four cells making up a square which is stable indefinitely).
+
+***************** Report Section *****************
+I started the project by reading the game of life PA, and by reading the provided code. It made sense
+that the 19x19 board could be represented by a 19x19 2D array. It was farily straightforward to 
+build the get and set functions, the only tricky part is that the board is counted 1-19 whereas
+the arrays are from 0-18. This led to an early design choice in the code, do I use the get and set
+methods throughout MyGameOfLife class, and deal with two numbering systems or do I ignore the get and set
+methods and use the 0-18 array directly? I chose to use the 0-18 arrays directly so I would only 
+have to use one numbering system, but ignoring the get and set is probably bad form (not sure?).
+
+I added a method of "countNeighbors", but in order to call it to test it I needed to redeclare life
+as type MyGameOfLife instead of GameOfLife. This is commented out now, but took a while to figure out.
+
+This is the first time I've used interfaces or @overrides (My CS 142 stopped at chp 8, these are 
+covered in Chp 9). Also the first time I've used javadocs extensively. I've been playing catch 
+up for the first week trying to figure these out.
+
+The things I would do differently next time are; 
+	Change the countNeighbors method to not include the current cell in the count
+	Add the birthing, lonely, and overcrowding states to the interface, and use the interface
+		states and calls more. This would make the code more readable.
+	Somehow unify the two numbering systems, probably just make the get/set to 0-18 so it is 
+		consistent with the arrays (not sure if this allowed in the assignment).

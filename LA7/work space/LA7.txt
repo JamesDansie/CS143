@@ -1,0 +1,36 @@
+Project: LA 7 - Exceptions
+Author: James Dansie
+
+1) When running and compiling the class the following error is thrown;
+Exception in thread "main" java.lang.RuntimeException: Instantiated in m4
+	at Oops.m4(Oops.java:27)
+	at Oops.m3(Oops.java:22)
+	at Oops.m2(Oops.java:18)
+	at Oops.m1(Oops.java:12)
+	at Oops.main(Oops.java:33)
+
+2) When running and compiling the class the following error is thrown;
+Exception in thread "main" java.lang.RuntimeException: Instantiated in m2
+	at Oops.m2(Oops.java:17)
+	at Oops.m1(Oops.java:12)
+	at Oops.main(Oops.java:33)
+
+3) When running and compiling the class the following error is thrown;
+Exception in thread "main" java.lang.RuntimeException: Instantiated in the constructor
+	at Oops.<init>(Oops.java:8)
+	at Oops.main(Oops.java:33)
+
+4) When running and compiling the class the following error is thrown;
+Oops.java:33: error: non-static variable x cannot be referenced from a static context
+        x = new RuntimeException("Instantiated in main");
+        ^
+1 error
+
+5) When running and compiling the class the following error is thrown;
+Exception in thread "main" java.lang.RuntimeException: Instantiated in field
+	at Oops.<init>(Oops.java:4)
+	at Oops.main(Oops.java:35)
+
+6) When running and compiling the class the following error is thrown;
+Exception in thread "main" java.lang.RuntimeException: Instantiated in field
+	at Oops.<clinit>(Oops.java:4)

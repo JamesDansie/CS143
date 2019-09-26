@@ -1,0 +1,18 @@
+Author: James Dansie
+Project: PA2 - Game Of Life GUI for CS 143
+
+I actually had a hard time getting stared on this project. I didn't really understand the relationship between containers and components. So I started by doing the other projects (LA2 and CE2) first, and hoping I would understand by the time I was done with those. Before I started this project I started doing some smaller, more simple drawings first. I drew some Xs and squares using both DrawingPanel and the JComponent. Once I had a better understanding of that I started drawing the board. Again I had a hard time understanding the buttons and mouse listeners, so I tried out the example codes from the week, and I checked out some stack overflow examples to get a better understanding. I actually found the provided source code from the class to be pretty complicated and confusing (why are we overriding a JFrame vs JPanel? What is a button handler?), whereas the stack overflow examples were simpler, and easier to grasp.
+
+I've completed the project up to the challenger level, so everything seems to be working now. One of the ongoing challenges is that the board uses the 1-19 numbering where as the arrays use 0-18. This caused a bit of trouble in the following code;
+
+        	for(int row = 1; row <= 19; row++) {
+			for(int col = 1; col <= 19; col++) {
+				state = game.getCellState(row, col);
+              			    if(state == 1)
+					g.fillOval((col-1)*25+5, (row-1)*25+5, 15, 15);
+			}
+		}
+
+The game.getCellState works with the 1-19 numbering system whereas the col and row work with 0-18. At first I didn't have the (col-1) and (row-1), and everything was off by one cell. That took a long time to find. 
+
+I've learned a lot about graphics with components, buttons, mouses, and action listeners. I wish I understood the button handler better. My main code looks a bit bloated, if I were to do this again I wonder if I could move some of the button and panel defintions into the constructor so the main method was more clear.

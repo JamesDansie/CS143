@@ -1,0 +1,36 @@
+//refreshing my memory
+
+public class stuff extends javax.swing.JPanel{
+
+	private int num;
+
+	public stuff{
+		int = 0;
+		setPreferredSize(400, 400);
+	}
+
+	@Override
+	public paintComponent(java.AWT.graphics g){
+		g.setColor(java.AWT.Color.Black);
+		g.drawOval(10,10,30,40);
+	}
+
+
+	public static void main(String[] args){
+		int=5;
+		JFrame win = new JFrame("title!");
+		JPanel panel = new JPanel();
+		JButton b1 = new JButton("This is abutton");
+
+		b1.addActionListener(new ActionListner(){
+			public void actionPerformed(ActionEvent e){
+				button does stuff;
+				win.repaint();
+			}
+		});
+		win.setSize(300, 300);
+		win.setDefaultCloseOperation(JFrame.DISPOSE_ONCLOSE);
+		panel.add(b1);
+		win.add(panel, BorderLayout.CENTER);
+	}
+}

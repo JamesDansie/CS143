@@ -1,0 +1,19 @@
+import javax.swing.*;
+
+public class OneButton {
+
+    public static void main(String[] args) {
+    
+        JFrame win = new JFrame("One button");
+        win.setSize(400, 300);
+        win.setLocation(50, 50);
+        // set the default close operation
+        win.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        // create abutton and put it in the window
+        JButton btn = new JButton("Click me");
+        win.add(btn);
+        win.setVisible(true);
+    
+    }
+
+}

@@ -1,0 +1,4 @@
+Stuff left to do;
+Add Manifest
+Make Jar file
+Optional - add adaptive implementation

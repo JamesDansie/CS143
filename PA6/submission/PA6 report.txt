@@ -1,0 +1,10 @@
+Author: James Dansie
+Project: PA 6 - Presidents - Standard Level
+
+To approach the assignment; first I read as much as I could from the slides and book. After looking at the problem I decided to break up the reading and writing since it looked like we would have multiple outputs, but were always reading from the same file. So I wrote a method to read the input, then stored in an array. The array could then reorganized to match the different outputs.
+
+Everything for the standard level works, including javadocs.
+
+I learned a fair amount about streams, and inputs and outputs. It would be neat to try something similar over my local network, and write from one computer to another.
+
+Next time I would have the input reader breakup the input again by "/" so the challenge section would be easier to sort through. Also the java.util.Array.sort is a bit of pain to use for 2D arrays and has errors if you have any null values in the array. A different data type might be easier to implement.

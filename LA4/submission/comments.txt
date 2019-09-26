@@ -1,0 +1,1 @@
+everything but the adaptive implementation is done. I couldn't figure out how to have the @throws tags not throw javadoc errors for the java.lang.IllegalArgumentException. I was reading a bit online and it sounds like it is because they are unchecked exceptions. Not sure how to fix that.

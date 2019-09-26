@@ -1,0 +1,20 @@
+public class MakeDat {
+    
+    public static void main(String[] args) {
+        try {
+            java.io.PrintStream out = new java.io.PrintStream("sample.dat");
+            out.println("; Sample Rate 10000");
+            out.println("; Channels 1");
+            
+            for(int i = 0; i < 1000; i ++) {
+                double value = (i + 1.0) / 10000;
+                out.printf("%12.6f %12.6f\n", value, 0.5 + 0.1 * value);
+            }
+            out.println();
+            out.close();
+        } catch(java.io.IOException e) {
+            System.err.println("Error with the file.");
+        }
+    }
+    
+}

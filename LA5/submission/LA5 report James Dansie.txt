@@ -1,0 +1,6 @@
+Project: LA5 Report - JUnit Testing
+Author: James Dansie
+
+I was using jGrasp and was unable to move the test files into a seperate folder. I know the file structure is incorrect, but I didn't see any anwsers or guidance on the forums in time, so I submitted it anyways. Sorry about that.
+
+The test cases checked all of the public methods, and verified the preconditions by setting the sizes too high and too low. The only errors that would pop up were for the anticipated preconditions. I tried string inputs as well, but couldn't get the test cases to compile.

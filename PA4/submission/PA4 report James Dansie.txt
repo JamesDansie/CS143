@@ -1,0 +1,13 @@
+Author: James Dansie
+Project: PA4 - Stack/Queue, Array Implementation - Standard Level
+
+I started this project by reading the arraylist class notes. Then I downloaded the support files and scratched my head. I started working through the arraylist class notes and trying to make an array list. While I was working on that I would review the book's chp 15 and the section about iterators in chp 11. In hindsight I didn't need the iterator, but I wrote it anyways. The weirdest part was the generic implementation. It would have been nice to have a stepping stone between something I understood. It was hard to make an array list and a generic type when I haven't done either before. Once I had a functional array list I started implementing the interfaces.
+
+All the functions work and compile without warnings. Also the javadocs are all done without errors. Everything seems to work.
+
+I made a test.java at the level of the csc143 directory so I could use import csc143.data_structures.*; without adding it to the classpath (this is reused from PA3). All the methods and limit tests were tested this way.
+
+Probably the hardest part was the use of the generic type. I'm still trying to wrap my head around that, and when I have to use <E> or E instead of object.
+
+Next time I would leave out the iterator.
+

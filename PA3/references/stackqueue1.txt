@@ -1,0 +1,23 @@
+public interface UnboundedStack {
+    public void push(Object o);
+    public Object pop();
+    public Object peek();
+}
+
+public interface UnboundedQueue {
+    public void enqueue(Object o); 
+    public Object dequeue(); 
+    public Object peek();
+}
+
+public interface BoundedStack {
+    public void push(Object o);
+    public Object pop();
+    public Object peek();
+}
+
+public interface BoundedQueue {
+    public void enqueue(Object o); 
+    public Object dequeue(); 
+    public Object peek();
+}

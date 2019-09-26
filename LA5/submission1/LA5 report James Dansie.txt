@@ -1,0 +1,6 @@
+Project: LA5 Report - JUnit Testing
+Author: James Dansie
+
+I was using jGrasp and have the correct file structure, but I left out the project file since it would make the .jar file have the wrong file structure (it's at the level of csc143).
+
+The test cases checked all of the public methods, and verified the preconditions by setting the sizes too high and too low. The only errors that would pop up were for the anticipated preconditions. I tried string inputs as well, but couldn't get the test cases to compile.

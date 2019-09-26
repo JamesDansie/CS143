@@ -1,0 +1,12 @@
+Author: James Dansie
+Project: PA3 - Stack/Queue, Linked List Implementation - Standard Level
+
+At the beginning of the project I had a poor understanding of linked lists. Even after reading the notes and watching the class videos I was still confused. So I read the book's chapter 16 on the subject. This helped a lot because the early part of the chapter had some simple examples that were easier to understand. Also the book examples had the fields as public instead of private. With this I would call "list.next.next.next.data" and get a better understanding of what a link/chain is. It wasn't until that example that a Linked List really clicked for me. 
+
+As far as I can tell everything seems to work. I wrote a test.java to test every every method of every class. It would also check the bounds limits for the bounded classes. So far so good. I stopped at the standard level because I'm out of time.
+
+One of the things I'm confused about is if bounded methods should begin counting at 0 or 1. So for example BoundedStack_LinkedList(3) should have 0,1,2,3 links or 1,2,3 links. This seems abitrary and as long as I'm consistent it probably doesn't matter.
+
+I think the most important thing I learned was working on the book examples, and gaining a good understanding of links. The idea that the chain is really just head.link.link.link.....tail with methods adding on to methods until the tail.
+
+The thing I wouldn't do next time is use a size() method. At first I had one, but after reading the PA a bit closer I don't think that is allowed. So I rewrote a lot to remove it.

@@ -1,0 +1,1 @@
+memberSearchIndex = [{"p":"<Unnamed>","c":"MyGameOfLife","l":"getCellState(int, int)"},{"p":"<Unnamed>","c":"MyGameOfLife","l":"MyGameOfLife()"},{"p":"<Unnamed>","c":"MyGameOfLife","l":"nextGeneration()"},{"p":"<Unnamed>","c":"MyGameOfLife","l":"setCellState(int, int, int)"},{"p":"<Unnamed>","c":"MyGameOfLife","l":"toString()"}]
